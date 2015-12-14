@@ -57,7 +57,7 @@
 				var len = images.length;
 
 				var loadNext = function(i) {
-					var src = 'img/' + images[i];
+					var src = 'img/' + images[i] + '.jpg';
 					loadImage(src, function(err) {
 						if (!err) {
 							var el = document.createElement('img');
