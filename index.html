@@ -61,8 +61,8 @@
 					loadImage(src, function(err) {
 						if (!err) {
 							var el = document.createElement('img');
-							img.setAttribute('src', src);
-							container.appendChild(img);
+							el.setAttribute('src', src);
+							container.appendChild(el);
 						}
 
 						i++;
