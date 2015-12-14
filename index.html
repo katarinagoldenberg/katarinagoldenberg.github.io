@@ -25,14 +25,73 @@
 				line-height: 1.4;
 			    -webkit-font-smoothing: antialiased;
 			    -webkit-text-size-adjust: 100%;
-			 }
-
-			
+			}
+			img {
+				width: 100%;
+				display: block;
+				margin-bottom: 2em;
+			}
+			.container {
+				width: 90%;
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 2em 0;
+			}
 		</style>
 	</head>
 	<body>
-		<div class='container'>
-		
-		</div>
+		<div class='container'></div>
 	</body>
+	<script>
+		(function() {
+			var images = [
+				'flowers1','flowers2','flowers3','flowers4','flowers5','flowers6', 'harvest_dinner',
+				'display1','display2','display3','display4','display5',
+				'truck',
+				'veg1', 'veg2', 'veg3'
+			];
+
+			var container = document.getElementsByClassName('container')[0];
+
+			var init = function() {
+				var len = images.length;
+
+				var loadNext = function(i) {
+					var src = 'img/' + images[i];
+					loadImage(src, function(err) {
+						if (!err) {
+							var el = document.createElement('img');
+							img.setAttribute('src', src);
+							container.appendChild(img);
+						}
+
+						i++;
+						if (i < len) {
+							loadNext(i);
+						}
+					}
+				};
+
+				loadNext(0);
+				
+			};
+
+
+			var loadImage = function(url, cb) {
+			    var img = new Image();
+
+			    img.onload = function() {
+			        cb();
+			    };
+
+			    img.onerror = function() {
+			        cb('error loading image: ' + url);
+			    };
+
+			    img.src = url;
+			};
+
+			init();
+		})();
+	</script>
 </html>
