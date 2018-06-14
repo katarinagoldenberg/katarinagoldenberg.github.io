@@ -2,96 +2,31 @@
 <html lang='en'>
 	<head>
 		<meta charset='utf-8'>
-		<title>Katarina Goldenberg</title>
+		<title>Katarina Goldenberg Floral Design</title>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<meta name='description' content='Interactive news developer at the Boston Globe'>
+		<meta name='description' content='Floral Designer in The Berkshires'>
 		<meta name='author' content='Katarina Goldenberg'>
-		<meta name='keywords' content='flowers, floral, arrangements, boquets, farm, boston, cambridge'>
+		<meta name='keywords' content='floral design, flowers, arrangements, weddings, boquets, farm, boston, cambridge, berkshires, pittsfield, great barrington, hudson valley'>
 		<meta itemprop='image' content=''>
 		<meta description='itemprop' content=''>
 		<meta itemprop='keywords' content='flowers, floral, arrangements, boquets, farm, boston, cambridge'>
-		<style>
-			* {
-				box-sizing: border-box;
-				-moz-box-sizing: border-box;
-			}
-
-			body {
-				padding: 0;
-				margin: 0;
-			    background: #fff;
-			    color: #555;
-			    font-size: 19px;
-				line-height: 1.4;
-			    -webkit-font-smoothing: antialiased;
-			    -webkit-text-size-adjust: 100%;
-			}
-			img {
-				width: 100%;
-				display: block;
-				margin-bottom: 2em;
-			}
-			.container {
-				width: 90%;
-				max-width: 960px;
-				margin: 0 auto;
-				padding: 2em 0;
-			}
-		</style>
+		<link href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,300,500' rel='stylesheet'>
+		<link href='reset.css' rel='stylesheet'>
+		<link href='style.css' rel='stylesheet'>
 	</head>
 	<body>
-		<div class='container'></div>
+		<main id='content'>
+			<header>
+				<div class='header__bg'></div>
+				<!-- <img class='header__img' src='assets/bg.jpg'> -->
+
+				<div class='header__info'>
+					<h1 class='header__hed'>Katarina Goldenberg</h1>
+					<p class='header__dek'>Floral Designer &amp; Gardener</p>
+				</div>
+			</header>
+		</main>
 	</body>
-	<script>
-		(function() {
-			var images = [
-				'flowers1','flowers2','flowers4','flowers5','flowers6', 'harvest_dinner',
-				'display1','display2','display3','display4','display5',
-				'truck',
-				'veg1', 'veg2', 'veg3'
-			];
-
-			var container = document.getElementsByClassName('container')[0];
-
-			var init = function() {
-				var len = images.length;
-
-				var loadNext = function(i) {
-					var src = 'assets/' + images[i] + '.jpg';
-					loadImage(src, function(err) {
-						if (!err) {
-							var el = document.createElement('img');
-							el.setAttribute('src', src);
-							container.appendChild(el);
-						}
-
-						i++;
-						if (i < len) {
-							loadNext(i);
-						}
-					});
-				};
-
-				loadNext(0);
-				
-			};
-
-
-			var loadImage = function(url, cb) {
-			    var img = new Image();
-
-			    img.onload = function() {
-			        cb();
-			    };
-
-			    img.onerror = function() {
-			        cb('error loading image: ' + url);
-			    };
-
-			    img.src = url;
-			};
-
-			init();
-		})();
-	</script>
+	<script src='https://unpkg.com/d3@5.4.0'></script>
+	<script src='script.js'></script>
 </html>
